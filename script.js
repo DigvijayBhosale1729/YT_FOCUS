@@ -1,14 +1,18 @@
 $(document).ready(function(){
 
   var API_KEY = "AIzaSyB5n9qzqaiL45kvBNQ70kHL276--ONR1AI"
+  var SERP_API_KEY = "928df56a949fffbd402d6ed09e8ac0ef"
+  maxRes = 8
+  page = 1
+  num = 10
   var video = ""
 
   $("#searchForm").submit(function(event){
 
     event.preventDefault()
     var searchq = $("#search").val();
-
-    videoSearch(API_KEY, searchq, 15) //API_KEY, String to be searched, Max results
+    videoSearch(API_KEY, searchq, maxRes) //API_KEY, String to be searched, Max results
+    serpGoogleSearch(SERP_API_KEY, searchq, page, num)
   })
 
   function videoSearch(key, searchq, maxRes){
@@ -28,6 +32,20 @@ $(document).ready(function(){
 
     })//return data function
 
+  }
+
+  function serpGoogleSearch(SERP_API_KEY, searchq, page, num){
+    
+    var query = `http://api.serpstack.com/search
+    ? access_key = YOUR_ACCESS_KEY
+    & query = ${searchq}
+    & type = web
+    & page = ${page}
+    &num = ${num}`
+    $.get(query, function(data){
+      console.log(data)
+
+    })
   }
 
 })
