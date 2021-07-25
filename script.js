@@ -26,7 +26,7 @@ $(document).ready(function(){
         video = `
         <iframe src="https://www.youtube.com/embed/${item.id.videoId}" allowfullscreen></iframe>
         `
-        document.getElementById("video"+i).innerHTML=video;
+        document.getElementById("video"+i).innerHTML=video+"<hr>";
         i=i+1;
       });//for loop
 
