@@ -14,9 +14,8 @@ $(document).ready(function(){
     videoSearch(API_KEY, searchq, maxRes) //API_KEY, String to be searched, Max results
     serpGoogleSearch(SERP_API_KEY, searchq, page, num)
   })
- var i=1;
   function videoSearch(key, searchq, maxRes){
-
+    var i=1;
     $.get("https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&key=" + key + "&q=" + searchq + "&maxResults=" + maxRes, function(data){
 
       console.log(data)
