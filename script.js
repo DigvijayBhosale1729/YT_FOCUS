@@ -22,7 +22,7 @@ $(document).ready(function(){
       console.log(data)
 
       data.items.forEach(item => {
-        if(i>8){i=1;}
+        if(i>maxRes){i=1;}
         video = `
         <iframe src="https://www.youtube.com/embed/${item.id.videoId}" allowfullscreen></iframe>
         `
